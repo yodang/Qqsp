@@ -23,6 +23,7 @@
 #include "qsplistbox.h"
 #include "qspinputbox.h"
 #include "qspimgcanvas.h"
+#include "debugger.h"
 #ifdef _WEBBOX
 #include <QWebEngineProfile>
 #include "qspwebbox.h"
@@ -174,6 +175,7 @@ private:
     QDockWidget*	_descWidget; //m_vars ID_VARSDESC
     QDockWidget*	_inputWidget; //m_input
     QDockWidget*    _mainDescWidget;
+    QDockWidget*    _debugWidget;
     QString lastPath; //For QFileDialog
     QString lastGame;
 

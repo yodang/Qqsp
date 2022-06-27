@@ -838,6 +838,11 @@ void MainWindow::CreateDockWindows()
     _imgViewWidget->setWidget(m_imgView);
     addDockWidget(Qt::BottomDockWidgetArea, _imgViewWidget, Qt::Vertical);
 
+    //Debugger widget
+    _debugWidget = new Debugger(tr("Debugger"), this);
+    _debugWidget->setObjectName(QStringLiteral("_debugWidget"));
+    addDockWidget(Qt::BottomDockWidgetArea, _debugWidget, Qt::Vertical);
+
     splitDockWidget(_actionsWidget, _inputWidget, Qt::Vertical);
     splitDockWidget(_mainDescWidget, _objectsWidget, Qt::Horizontal);
 }

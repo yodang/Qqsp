@@ -25,6 +25,7 @@ INCLUDEPATH += $$PWD/qsp/bindings/default/
 #INCLUDEPATH += $$PWD/qsp/qsp/onig/
 
 SOURCES += \
+    debugger.cpp \
     main.cpp \
     mainwindow.cpp \
     qsptextbox.cpp \
@@ -40,6 +41,7 @@ SOURCES += \
     videolabel.cpp
 
 HEADERS += \
+    debugger.h \
     mainwindow.h \
     qsptextbox.h \
     qsplistbox.h \
