@@ -1,17 +1,18 @@
 #ifndef QSPDEBUGGER_H
 #define QSPDEBUGGER_H
 
-#include<QDockWidget>
+#include<QFrame>
 #include<QTextEdit>
 #include<QLineEdit>
 
-class Debugger: public QDockWidget{
+class Debugger: public QFrame{
     Q_OBJECT
 public:
     Debugger(QWidget* parent=nullptr);
-    Debugger(const QString& title, QWidget* parent=nullptr);
 
 private:
+    void refreshVars();
+
     QTextEdit*  variableList;
     QTextEdit* outputText;
     QLineEdit* inputLine;

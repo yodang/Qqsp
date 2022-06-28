@@ -180,6 +180,7 @@ private:
     QString lastGame;
 
     // Fields
+    Debugger* m_debugger;
     bool m_isGameOpened;
     QString m_savedGamePath;
     QString m_configPath;

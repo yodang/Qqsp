@@ -644,7 +644,12 @@ void MainWindow::CreateMenuBar()
 
     // Show / Hide submenu
     _showHideMenu = _settingsMenu->addMenu(tr("Show / Hide"));
-
+    
+    // Debugger item
+    action = _debugWidget->toggleViewAction();
+    //action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_1));
+    _showHideMenu->addAction(action);
+    
     // Objects item
     action = _objectsWidget->toggleViewAction();
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_1));
@@ -839,8 +844,11 @@ void MainWindow::CreateDockWindows()
     addDockWidget(Qt::BottomDockWidgetArea, _imgViewWidget, Qt::Vertical);
 
     //Debugger widget
-    _debugWidget = new Debugger(tr("Debugger"), this);
+    m_debugger = new Debugger(this);
+    m_debugger->setObjectName(tr("m_debugger"));
+    _debugWidget = new QDockWidget(tr("Debugger"), this);
     _debugWidget->setObjectName(QStringLiteral("_debugWidget"));
+    _debugWidget->setWidget(m_debugger);
     addDockWidget(Qt::BottomDockWidgetArea, _debugWidget, Qt::Vertical);
 
     splitDockWidget(_actionsWidget, _inputWidget, Qt::Vertical);
