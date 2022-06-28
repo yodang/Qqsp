@@ -12,6 +12,7 @@ public:
 
 private:
     void refreshVars();
+    void printVar(const QString& name);
 
     QTextEdit*  variableList;
     QTextEdit* outputText;

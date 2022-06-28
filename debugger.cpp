@@ -39,6 +39,11 @@ void Debugger::command()
         outputText->clear();
     else if(cmd=="refresh")
         refreshVars();
+    else if(cmd.startsWith("print"))
+    {
+        auto varName=cmd.split(" ")[1];
+        printVar(varName);
+    }
 }
 
 void Debugger::refreshVars()
@@ -52,4 +57,12 @@ void Debugger::refreshVars()
         }
     }
 
+}
+
+void Debugger::printVar(const QString& name)
+{
+    int results;
+    QSP_CHAR* values;
+    QSPGetVarValues(reinterpret_cast<const QSP_CHAR*>(name.utf16()), 0, &results, &values);
+    outputText->append(QSPTools::qspStrToQt(values));
 }
